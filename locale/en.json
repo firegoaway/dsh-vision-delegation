@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Vision Delegation",
+    "description": "Pasted images become file attachments, so a text-only main model never rejects them — it inspects each image itself through its own vision tool (e.g. glm-5.3-flash) with a question it formulates per request."
+  }
+}
