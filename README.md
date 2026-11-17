@@ -22,7 +22,7 @@ The main model then receives the harness's standard file handle:
 are needed; …]
 ```
 
-… and stays fully in charge. It formulates **its own question** — casual or forensic, whatever the current request needs — and calls **its own vision tool** (e.g. `vision_analyze` backed by glm-5.3-flash, `read_image`, or any multimodal subagent) on the saved path. The vision tool answers as text, and the main model continues the workflow seamlessly. That is ordinary agentic delegation: the big model decides what the little model should look for.
+… and stays fully in charge. It formulates **its own question** — casual or forensic, whatever the current request needs — and calls **its own vision tool** (`vision_analyze` from the [`vision-flash`](vision-flash/README.md) bundle in this repository, `read_image`, or any multimodal subagent) on the saved path. The vision tool answers as text, and the main model continues the workflow seamlessly. That is ordinary agentic delegation: the big model decides what the little model should look for.
 
 ### What you see
 

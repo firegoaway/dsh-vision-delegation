@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "DeepSeek Harness Web GUI plugin: pasted images become file attachments, so a text-only main model delegates image inspection to its own vision tool (e.g. glm-5.3-flash) instead of rejecting the message.",
+  "description": "DeepSeek Harness Web GUI plugin: pasted images become file attachments, so a text-only main model delegates image inspection to its own vision tool (see the vision-flash bundle in this repository) instead of rejecting the message.",
   "license": "MIT",
   "exports": {
     ".": "./index.js",

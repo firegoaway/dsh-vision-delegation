@@ -6,8 +6,9 @@
  * the Host rejects for text-only models). The main model then receives the
  * harness's standard file handle — "[File pasted-image.png saved at <path>:
  * read it with your file tools when needed]" — and stays fully in charge:
- * it formulates its own question and calls its vision tool (e.g.
- * glm-5.3-flash) on the saved path, exactly like any other agentic
+ * it formulates its own question and calls its vision tool (e.g. the
+ * vision-flash bundle's vision_analyze, which discovers the strongest
+ * image-capable route) on the saved path, exactly like any other agentic
  * delegation. No model switching, nothing to restore, no race with the
  * send.
  */
