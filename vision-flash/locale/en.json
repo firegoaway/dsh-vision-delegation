@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Vision Route Auto-Discovery",
+    "description": "Purpose-driven vision for text-only main models: image analysis is streamed through the harness LLM seam to the best vision-capable route the current providers actually declare, with fall-through when one route is exhausted."
+  }
+}

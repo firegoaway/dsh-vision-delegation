@@ -35,7 +35,7 @@ are needed; …]
 
 - DSH Web GUI (the plugin is a client-side bundle; it adds no Host services).
 - Works with **any** main model — including natively multimodal ones (they can read the file path directly). It merely changes how images travel, not who looks at them.
-- Pairs naturally with a vision tool such as a `vision_analyze`-style plugin (e.g. one backed by glm-5.3-flash), but requires nothing specific: the model receives a readable path and decides for itself what to do with it.
+- Pairs naturally with a vision tool such as the [`vision-flash`](vision-flash/README.md) bundle shipped in this repository, but requires nothing specific: the model receives a readable path and decides for itself what to do with it.
 
 ## Install
 
@@ -64,6 +64,17 @@ The client half (`client.js`):
 3. File attachments are admitted for every model (the `MODEL_DOES_NOT_SUPPORT_IMAGES` check only inspects image parts) and are rendered to the model as readable-path file handles by the Host (`fileHandleText` in `@deepseek-ai/dsh-llm`).
 
 No slots are replaced, no shipped UI is shadowed; the only visible footprint is the armed pill registered in the `conversation.composer.dock` list slot.
+
+## The other bundle in this repository
+
+[`vision-flash/`](vision-flash/README.md) is the Host-side half of the same story: it registers `vision_analyze`, the tool that receives the file path this bundle produced, answers the model's own question about the image in text, and **discovers which model route may see pixels at all** — every provider is asked for its advertised models and only routes that declare `image` input are ever tried, ranked by config, with fall-through when one route has burned its quota. That is what makes the pairing survive a provider switch.
+
+```
+# install it as a second bundle (its own package directory):
+"Install the bundle at D:\path\to\dsh-vision-delegation\vision-flash"
+```
+
+Unlike this bundle, it is Host code with a `dsh.bundle` patch, so a **harness restart** loads it — no page refresh is enough. Its route-selection logic ships with an offline self-test that needs no provider traffic (see [`vision-flash/README.md`](vision-flash/README.md#self-test)).
 
 ## License
 

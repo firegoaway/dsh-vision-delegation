@@ -1,0 +1,12 @@
+- insert:
+    - id: vision-flash
+      name: '@local/dsh-vision-flash'
+      config:
+        # provider/model left unset on purpose: the plugin discovers every
+        # registered route whose catalog declares `image` input and tries them
+        # best-first, so switching provider or burning one route's quota no
+        # longer breaks vision. Pin them here only to force one route.
+        maxTokens: 4096
+        timeoutMs: 60000
+        totalTimeoutMs: 150000
+        maxImages: 4

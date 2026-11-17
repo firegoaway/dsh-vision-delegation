@@ -1,0 +1,17 @@
+{
+  "name": "@local/dsh-vision-flash",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "DeepSeek Harness plugin: vision_analyze auto-discovers every image-capable model route across the configured providers and falls through when one is exhausted.",
+  "exports": { ".": "./index.js", "./locale/*.json": "./locale/*.json", "./icon": "./icon.svg" },
+  "files": ["index.js", "selftest.mjs", "README.md", "cordis.patch.yml", "locale/*.json", "icon.svg"],
+  "scripts": { "test": "node selftest.mjs" },
+  "dependencies": {
+    "@deepseek-ai/dsh-attachment": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-llm": "0.2.1-rc.2",
+    "@deepseek-ai/dsh-tools": "0.2.1-rc.2",
+    "@deepseek-ai/schemastery": "~3.18.5"
+  },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } }
+}
